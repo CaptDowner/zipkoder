@@ -1,13 +1,12 @@
 class ZipsController < ApplicationController
-   @model = "zip" # model you are searching
-
+  @model = 'zip'
   before_action :set_zip, only: [:show, :edit, :update, :destroy]
 
   # GET /zips
   # GET /zips.json
   def index
+    @zips = Zip.text_search(params[:query]).order(sort_column + ' ' + sort_direction).page(params[:page])
 #    @zips = Zip.all
-     @zips = Zip.text_search(params[:query]).page(params[:page])
   end
 
   # GET /zips/1
@@ -70,8 +69,17 @@ class ZipsController < ApplicationController
       @zip = Zip.find(params[:id])
     end
 
+    def sort_column
+        params[:sort] || "zip"
+    end
+
+    def sort_direction
+      params[:direction] || "asc"
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def zip_params
-      params.require(:zip).permit(:city, :state, :state_2, :zip)
+      params.require(:zip).permit(:city, :state_2, :zip, :state, :lat, :long, :tz_offset, :dst)
     end
+
 end
