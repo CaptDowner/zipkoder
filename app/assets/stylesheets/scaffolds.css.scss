@@ -1,56 +1,80 @@
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: #00458A;
+  color: #fff;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px;
-}
+  line-height: 18px; }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px;
-}
+  line-height: 18px; }
 
 pre {
   background-color: #eee;
   padding: 10px;
-  font-size: 11px;
-}
+  font-size: 11px; }
 
 a {
-  color: #000;
+  color: #d7cfca;
   &:visited {
-    color: #666;
-  }
+    color: #ccc; }
   &:hover {
     color: #fff;
-    background-color: #000;
-  }
+    background-color: #000099; } }
+
+table td.idx-a {
+  color: #000;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
 }
 
 div {
   &.field, &.actions {
-    margin-bottom: 10px;
-  }
+    margin-bottom: 10px; } }
+ 
+p.notice, #notice{
+  width: 40%;
+  font-size: 10pt;
+  height: 16pt;
+  font-weight: 450;
+  color: #fff;
+  background-color: #1da004;
+  padding-top: 3pt;
+  margin: auto;
 }
 
-#notice {
-  color: green;
-}
+p.alert, #alert {
+  width: 44%;
+  font-size: 10pt;
+  height: 16pt;
+  font-weight: 450;
+  color: #fff;
+  background-color: #bc0f00;
+  padding-top: 3pt;
+  margin: auto;
+}  
 
-.field_with_errors {
+
+//p.notice, #notice {
+//  color: #b2ffb9; 
+//}
+
+.field_with_errors input {
   padding: 2px;
-  background-color: red;
-  display: table;
-}
+//  background-color: #c40400;
+  display: table; 
+  border: 1px red solid;
+  }
+
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 1px solid #c6c6c6;  
   padding: 7px;
   padding-bottom: 0;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   background-color: #f0f0f0;
   h2 {
     text-align: left;
@@ -59,11 +83,11 @@ div {
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
-  }
+    background-color: #c40400;
+    color: #fff; }
   ul li {
     font-size: 12px;
-    list-style: square;
-  }
+    text-align: left;
+    color: #000099;
+    t-style: square; }
 }
