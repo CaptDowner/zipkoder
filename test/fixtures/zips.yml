@@ -2,12 +2,20 @@
 
 one:
   city: MyString
-  state: MyString
   state_2: MyString
   zip: MyString
+  state: MyString
+  lat: MyString
+  long: MyString
+  time_offset: MyString
+  dst: MyString
 
 two:
   city: MyString
-  state: MyString
   state_2: MyString
   zip: MyString
+  state: MyString
+  lat: MyString
+  long: MyString
+  time_offset: MyString
+  dst: MyString
