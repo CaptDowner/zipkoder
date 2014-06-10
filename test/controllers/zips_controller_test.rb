@@ -18,7 +18,7 @@ class ZipsControllerTest < ActionController::TestCase
 
   test "should create zip" do
     assert_difference('Zip.count') do
-      post :create, zip: { city: @zip.city, state: @zip.state, state_2: @zip.state_2, zip: @zip.zip }
+      post :create, zip: { city: @zip.city, dst: @zip.dst, lat: @zip.lat, long: @zip.long, state: @zip.state, state_2: @zip.state_2, time_offset: @zip.tz_offset, zip: @zip.zip }
     end
 
     assert_redirected_to zip_path(assigns(:zip))
@@ -35,7 +35,7 @@ class ZipsControllerTest < ActionController::TestCase
   end
 
   test "should update zip" do
-    patch :update, id: @zip, zip: { city: @zip.city, state: @zip.state, state_2: @zip.state_2, zip: @zip.zip }
+    patch :update, id: @zip, zip: { city: @zip.city, dst: @zip.dst, lat: @zip.lat, long: @zip.long, state: @zip.state, state_2: @zip.state_2, tz_offset: @zip.time_offset, zip: @zip.zip }
     assert_redirected_to zip_path(assigns(:zip))
   end
 
