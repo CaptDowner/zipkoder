@@ -1,24 +1,39 @@
-<p id="notice"><%= notice %></p>
+<h1>Show Location</h1>
+<tr id="notice"><%= notice %></tr>
 
-<p>
-  <strong>City:</strong>
-  <%= @zip.city %>
-</p>
+<table class='redback'>
+  <tr>
+    <td class='reddy1'><strong>City:</strong></td> <td class='reddy'><%= @zip.city %></td>
+  </tr>
 
-<p>
-  <strong>State:</strong>
-  <%= @zip.state %>
-</p>
+  <tr>
+    <td class='reddy1'><strong>State 2:</strong></td><td class='reddy'><%= @zip.state_2 %></td>
+  </tr>
 
-<p>
-  <strong>Code:</strong>
-  <%= @zip.state_2 %>
-</p>
+  <tr>
+    <td class='reddy1'><strong>Zip:</strong></td><td class='reddy'><%= @zip.zip %></td>
+  </tr>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @zip.zip %>
-</p>
+  <tr>
+    <td class='reddy1'><strong>State:</strong></td><td class='reddy'><%= @zip.state %></td>
+  </tr>
 
+  <tr>
+    <td class='reddy1'><strong>Lat:</strong></td><td class='reddy'><%= @zip.lat %></td>
+  </tr>
+
+  <tr>
+    <td class='reddy1'><strong>Long:</strong></td><td class='reddy'><%= @zip.long %></td>
+  </tr>
+
+  <tr>
+    <td class='reddy1'><strong>Time offset:</strong></td><td class='reddy'><%= @zip.tz_offset %></td>
+  </tr>
+
+  <tr>
+    <td class='reddy1'><strong>Dst:</strong></td><td class='reddy'><%= @zip.dst %></td>
+  </tr>
+</table>
+<br>
 <%= link_to 'Edit', edit_zip_path(@zip) %> |
 <%= link_to 'Back', zips_path %>
