@@ -4,8 +4,8 @@
  <%= form_tag zips_path, :method => 'get' do %>
    <p>
      <%= text_field_tag :query, params[:query] %>
-     <% $query = params['query']
-        binding.pry %>
+     <% $query = params['query'] %>
+     <!--      < %  binding.pry % > -->
      <%= submit_tag "Search", name: nil %>
    </p>
  <% end %>
@@ -48,5 +48,5 @@
     <td colspan='3'><%= paginate @zips %></td>
   </tr>
 </table>
-
+<br>
 <%= link_to 'New Zip', new_zip_path %>
