@@ -1,5 +1,6 @@
 body {
   background-color: #00458A;
+  //#000099;
   color: #fff;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -25,48 +26,20 @@ a {
 
 table td.idx-a {
   color: #000;
-  padding-right: 0.5em;
-  padding-left: 0.5em;
 }
-
 div {
   &.field, &.actions {
     margin-bottom: 10px; } }
- 
-p.notice, #notice{
-  width: 40%;
-  font-size: 10pt;
-  height: 16pt;
-  font-weight: 450;
-  color: #fff;
-  background-color: #1da004;
-  padding-top: 3pt;
-  margin: auto;
-}
 
-p.alert, #alert {
-  width: 44%;
-  font-size: 10pt;
-  height: 16pt;
-  font-weight: 450;
-  color: #fff;
-  background-color: #bc0f00;
-  padding-top: 3pt;
-  margin: auto;
-}  
+#notice {
+  color: green; }
 
-
-//p.notice, #notice {
-//  color: #b2ffb9; 
-//}
-
-.field_with_errors input {
+.field_with_errors {
   padding: 2px;
-//  background-color: #c40400;
+  background-color: #c40400;
   display: table; 
-  border: 1px red solid;
+  border: 1px;
   }
-
 
 #error_explanation {
   width: 450px;
@@ -89,5 +62,5 @@ p.alert, #alert {
     font-size: 12px;
     text-align: left;
     color: #000099;
-    t-style: square; }
-}
+
+t-style: square; } }
