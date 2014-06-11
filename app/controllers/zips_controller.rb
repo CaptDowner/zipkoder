@@ -6,6 +6,8 @@ class ZipsController < ApplicationController
   # GET /zips.json
   def index
     @zips = Zip.text_search(params[:query]).order(sort_column + ' ' + sort_direction).page(params[:page])
+    $q_result = @zips
+#    binding.pry
 #    @zips = Zip.all
   end
 
