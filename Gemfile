@@ -28,12 +28,14 @@ gem 'ransack', '~> 1.2.3'
 gem 'polyamorous', '~> 1.0.0'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
-gem 'pry'
-gem 'pry-rails'
+gem 'pry', group: [:development, :test]
+gem 'pry-rails', group: [:development, :test]
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
+gem 'bcrypt', '~> 3.1.7'
+gem 'rspec', '~> 3.0.0'
+gem 'rspec-rails', '~> 3.0.1'
+gem 'rspec-core', '~> 3.0.0'
 # Use unicorn as the app server
 # gem 'unicorn'
 
