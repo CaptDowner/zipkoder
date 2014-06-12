@@ -1,7 +1,8 @@
 class ZipsController < ApplicationController
   @model = 'zip'
   before_action :set_zip, only: [:show, :edit, :update, :destroy]
-  before_action :require_signin, except: [:index, :show]
+  before_action :require_signin
+  #, except: [:index, :show]
 
   # GET /zips
   # GET /zips.json
@@ -24,7 +25,7 @@ class ZipsController < ApplicationController
   # GET /zips/1/edit
   def edit
    unless current_user_admin?
-      redirect_to zips_path, alert: "Inspector Clouseau: \"You cannot edit zip information.\""
+     redirect_to zips_path, alert: "Inspector Clouseau: \"Only I can edit. And that is NOT your zip!.\""
    end
   end
 
@@ -48,7 +49,7 @@ class ZipsController < ApplicationController
   # PATCH/PUT /zips/1.json
   def update
     unless current_user_admin?
-      redirect_to zips_path, alert: "Inspector Clouseau: \"You cannot update zip information.\""
+      redirect_to zips_path, alert: "Inspector Clouseau: \"Only I can edit. And that is NOT your zip!.\""
     else
       respond_to do |format|
         if @zip.update(zip_params)
@@ -66,7 +67,7 @@ class ZipsController < ApplicationController
   # DELETE /zips/1.json
   def destroy
     unless current_user_admin?
-      redirect_to zips_path, alert: "Inspector Clouseau: \"You cannot update zip information.\""
+      redirect_to zips_path, alert: "Inspector Clouseau: \"Only I can edit. And that is NOT your zip!.\""
     else
       @zip.destroy
       respond_to do |format|
