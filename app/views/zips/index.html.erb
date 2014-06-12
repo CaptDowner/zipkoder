@@ -35,7 +35,7 @@
         <td><%= zip.tz_offset %></td>
         <td><%= zip.dst ? 'yes' : 'no'  %></td>
         <td><%= link_to 'Show', zip %></td>
-        <% if current_user_or_admin? %>
+        <% if(current_user_admin?) %>
           <td><%= link_to 'Edit', edit_zip_path(zip) %></td>
           <td><%= link_to 'Destroy', zip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
@@ -54,11 +54,8 @@
 <table>
   <tr>
     <% if(current_user || current_user_admin?) %>
-      <!--    < %  if(false == true) % > -->
       <td><%= button_to 'New Zip', new_zip_path %></td>
       <td><%= button_to "Sign Out", session_path, data: { method: :delete, confirm: "Sign out #{current_user.firstname} #{current_user.lastname}?"} %></td>
-
-      <!--      <td>< % = button_to "Sign Out", session_path, data: { method: :delete, confirm: "Sign out #{current_user.firstname} #{current_user.lastname}?"} % ></td> -->
     <% else %>
       <td><%= button_to "Sign In", new_session_path, method: :get %></td>
       <td><%= button_to "Register", signup_path %></td>
