@@ -36,13 +36,23 @@
 //}
 
 // .uzer-table tr.odd { background: #005ebd; }
-
+table th{
+  font-size: 13px;
+  color: #000000;
+  background-color: #023468;
+  padding: 4px 8px;
+  padding-bottom: 4px;
+  text-align: left;
+}
 th.header {
   background: #023468;
 }
 
-tr.NormRow { background-color: #6F7B93; }
+//tr.NormRow { background-color: #6F7B93; }
+//tr.AltRow  { background-color: #005EBD; }
+tr.NormRow { background-color: #5c5959; }
 tr.AltRow  { background-color: #005EBD; }
+
 
 td.e-mail {
   width: 40%;
