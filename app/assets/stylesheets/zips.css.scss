@@ -6,7 +6,7 @@ table {
   border: 1px;
   border-color: gray;
   border-style: solid;
-  margin: 5px auto -8px;
+  margin: 5px 25% -8px 25%;
   padding: 4px;
 }
 
@@ -28,7 +28,14 @@ tr.NormRow { background-color: #5c5959; }
 tr.AltRow  { background-color: #005EBD; }
 //#005EBD; }
 
-
+.signin table{
+  border: 1px;
+  border-color: gray;
+  border-style: solid;
+  margin: 5px auto -8px;
+  padding: 4px;
+ 
+}
 table.redback {
   background-color: #00458A;
   color: #FFFFFF;
