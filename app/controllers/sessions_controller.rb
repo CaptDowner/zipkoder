@@ -5,9 +5,10 @@ class SessionsController < ApplicationController
   def create
     if user = User.authenticate(params[:email], params[:password])
       session[:user_id] = user.id
-      flash[:notice] = "Welcome back, #{user.name}!"
-      redirect_to(session[:intended_url] || user)
-      # setup default session params
+      flash[:notice] = "Welcome back, #{user.firstname} #{user.lastname}!"
+#      redirect_to(session[:intended_url] || user)
+      redirect_to(zips_path)
+     # setup default session params
       session[:intended_url] = nil
       session[:query] = nil
       session[:sort] = 'zip'
@@ -24,4 +25,3 @@ class SessionsController < ApplicationController
   end
 
 end
-
