@@ -1,0 +1,41 @@
+<table class='tip-top'>
+  <tr>
+    <td><h1>Zips Sign In</h1></td>
+  </tr>
+</table>
+<!-- Message indicating Registration and Log in required. --> 
+<p class='signin-msg'>Sign in to access advanced site features.</p>
+<p class='signin-msg'>Registration is required for new users.</p>
+
+<%= form_tag(session_path) do %>
+  <fieldset>
+  <!-- Signing in requires a unique email address and a password -->
+  <div class='signin'>
+    <table>
+       <tr>
+         <td class='reddy1'><%= label_tag :email, "Email:" %></td>
+         <td><%= email_field_tag :email, nil, autofocus: true  %></td></tr>
+         <td class='reddy1'><%= label_tag :password, "Password:" %></td>
+         <td><%= password_field_tag :password, nil %></td>
+      </tr>
+    </table>
+    <table class='foot-buttons'>
+      <tr>
+      <!-- show these buttons if this user is not signed in -->
+      <% if !current_user %>
+        <!--        <td>< % = button_to "Sign In", new_session_path % ></td> -->
+        <td><%= submit_tag "Sign In" %></td>
+        <td><%= button_to "Register", signup_path,      { class: "button", method: "get"} %>
+      <% else %>
+      <!-- show this button to signed in users -->
+      <!-- If chosen, issue an alert message confirming session sign out -->
+        <td><%= button_to 'Sign Out', session_path, method: :delete %></td>
+      <% end %>
+      <!-- show these buttons to all users -->
+        <td><%= button_to "Zips", zips_path, {:class => "button", :method => "get"} %></td>
+      </tr>
+    </table> 
+  </div>   <!-- end div:signin -->
+  </fieldset>
+
+<% end %>

@@ -1,0 +1,39 @@
+<html>
+<head>
+</head>
+<body>
+  <center>
+    <!--    <h1 class='rt-head-top'><img src='/favicon.ico' 'alt='ruby icon' />&nbsp;&nbsp; About Zips &nbsp;&nbsp;<img src='/favicon.ico' 'alt='ruby icon' /> -->
+   <h1 class='rt-head-top'> About Zips</h1
+    </h1>
+    <div class="about">
+      <table>
+        <tr>
+          <td>
+            This is a collection of location information I have pieced together from various public data sources. 
+            It contains a list of cities, states, along with their zipcodes and each zipcode's approximate geolocation.
+            Please fell free to use it. Questions and Comments are welcomed.  
+          </td>
+        </tr>
+      </table>
+    </center>
+  <div class='email_link'>
+  Email: <a href="mailto:'captdowner@gmail.com'">&nbsp; Zipcode Locator  &nbsp; </a>
+  </div>  <!-- end div::email_link -->
+  <center>
+    <div class='policytable'>
+      <table class='foot-buttons'>
+        <tr>
+          <td><%= button_to "Zips",  zips_path, {:class => "buttonTo", :method => "get"} %></td>
+          <% if !current_user %>
+            <td><%= button_to "Sign In", new_session_path, {class: "button", method: "get"} %>
+            <td><%= button_to "Register", signup_path, { class: "button", method: "get"} %>
+          <% else %>
+            <td><%= button_to "Sign Out", session_path, data: { method: :delete, confirm: "Sign out #{current_user.firstname} #{current_user.lastname}?"} %></td>
+          <% end %>
+      </tr>
+      </table> 
+    </div> <!-- End div:policytable -->
+  </center>
+</body>
+</html>
