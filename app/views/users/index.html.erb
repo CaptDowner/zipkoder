@@ -1,18 +1,20 @@
-<h1>Listing users</h1>
+<header id="content-header">
+  <h1><%= pluralize(@users.size, 'User') %></h1>
+</header>
 
 <table>
   <thead>
     <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Email</th>
+      <th align='left'><%= sortable 'firstname', 'Firstname'%></th>
+      <th align='left'><%= sortable 'lastname<', 'Lastname'%></th>
+        <th align='left'><%= sortable 'email', 'Email'%></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
+      <tr class="<%= cycle('NormRow', 'AltRow') %>">
         <td><%= user.firstname %></td>
         <td><%= user.lastname %></td>
         <td><%= user.email %></td>
