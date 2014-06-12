@@ -14,8 +14,12 @@ class SessionsController < ApplicationController
       session[:sort] = 'zip'
       session[:direction] = 'asc'
     else
-      flash.now[:alert] = "Invalid email/password combination!"
-      render :new
+      if(session[:user_id])
+        render :new
+      else
+        flash.now[:alert] = "Invalid email/password combination!"
+        render :new
+      end
     end
   end
 
