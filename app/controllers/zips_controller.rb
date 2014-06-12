@@ -1,13 +1,13 @@
 class ZipsController < ApplicationController
   @model = 'zip'
   before_action :set_zip, only: [:show, :edit, :update, :destroy]
+  before_action :require_signin, except: [:index, :show]
 
   # GET /zips
   # GET /zips.json
   def index
     @zips = Zip.text_search(params[:query]).order(sort_column + ' ' + sort_direction).page(params[:page])
     $q_result = @zips
-#    binding.pry
 #    @zips = Zip.all
   end
 
@@ -23,6 +23,9 @@ class ZipsController < ApplicationController
 
   # GET /zips/1/edit
   def edit
+   unless current_user_admin?
+      redirect_to zips_path, alert: "Inspector Clouseau: \"You cannot edit zip information.\""
+   end
   end
 
   # POST /zips
@@ -44,13 +47,17 @@ class ZipsController < ApplicationController
   # PATCH/PUT /zips/1
   # PATCH/PUT /zips/1.json
   def update
-    respond_to do |format|
-      if @zip.update(zip_params)
-        format.html { redirect_to @zip, notice: 'Zip was successfully updated.' }
-        format.json { render :show, status: :ok, location: @zip }
-      else
-        format.html { render :edit }
-        format.json { render json: @zip.errors, status: :unprocessable_entity }
+    unless current_user_admin?
+      redirect_to zips_path, alert: "Inspector Clouseau: \"You cannot update zip information.\""
+    else
+      respond_to do |format|
+        if @zip.update(zip_params)
+          format.html { redirect_to @zip, notice: 'Zip was successfully updated.' }
+          format.json { render :show, status: :ok, location: @zip }
+        else
+          format.html { render :edit }
+          format.json { render json: @zip.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -58,30 +65,41 @@ class ZipsController < ApplicationController
   # DELETE /zips/1
   # DELETE /zips/1.json
   def destroy
-    @zip.destroy
-    respond_to do |format|
-      format.html { redirect_to zips_url, notice: 'Zip was successfully destroyed.' }
-      format.json { head :no_content }
+    unless current_user_admin?
+      redirect_to zips_path, alert: "Inspector Clouseau: \"You cannot update zip information.\""
+    else
+      @zip.destroy
+      respond_to do |format|
+        format.html { redirect_to zips_url, notice: 'Zip was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_zip
-      @zip = Zip.find(params[:id])
-    end
 
-    def sort_column
-        params[:sort] || "zip"
+  def require_admin
+    unless current_user_admin?
+      redirect_to zips_path, alert: "Unauthorized access!"
     end
+  end
 
-    def sort_direction
-      params[:direction] || "asc"
-    end
+   # Use callbacks to share common setup or constraints between actions.
+   def set_zip
+     @zip = Zip.find(params[:id])
+   end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def zip_params
-      params.require(:zip).permit(:city, :state_2, :zip, :state, :lat, :long, :tz_offset, :dst)
-    end
+   def sort_column
+       params[:sort] || "zip"
+   end
+
+   def sort_direction
+     params[:direction] || "asc"
+   end
+
+   # Never trust parameters from the scary internet, only allow the white list through.
+   def zip_params
+     params.require(:zip).permit(:city, :state_2, :zip, :state, :lat, :long, :tz_offset, :dst)
+   end
 
 end
