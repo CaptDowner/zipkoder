@@ -29,10 +29,10 @@
       <% else %>
       <!-- show this button to signed in users -->
       <!-- If chosen, issue an alert message confirming session sign out -->
-        <td><%= button_to 'Sign Out', session_path, method: :delete %></td>
+      <td><%= button_to 'Sign Out', session_path, data: {method: :delete, confirm: "Sign out #{current_user.firstname} #{current_user.lastname}?"} %></td>
       <% end %>
       <!-- show these buttons to all users -->
-        <td><%= button_to "Zips", zips_path, {:class => "button", :method => "get"} %></td>
+        <td><%= button_to "Zips", zips_path, data: {:class => "button", :method => "get"} %></td>
       </tr>
     </table> 
   </div>   <!-- end div:signin -->
