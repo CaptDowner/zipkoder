@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 7, allow_blank: true }
 
- def self.authenticate(email, password)
+  def self.authenticate(email, password)
     user = User.find_by(email: email)
     user && user.authenticate(password)
   end
