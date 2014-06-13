@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "A user" do
-      
+
   it "requires a firstname" do
     user = User.new(firstname: "")
     
@@ -10,10 +10,10 @@ describe "A user" do
   end
 
   it "requires a lastname" do
-    user = User.new(lasstname: "")
+    user = User.new(lastname: "")
     
     expect(user.valid?).to be_false
-    expect(user.errors[:lasname].any?).to be_true
+    expect(user.errors[:lastname].any?).to be_true
   end
    
   it "requires an password" do
@@ -23,13 +23,6 @@ describe "A user" do
     expect(user.errors[:password].any?).to be_true
   end
 
-  it "requires a password confirmation" do
-    user = User.new(password_confirmation: "")
-    
-    expect(user.valid?).to be_false
-    expect(user.errors[:password_confirmation].any?).to be_true
-  end
-      
   it "requires an email" do
     user = User.new(email: "")
     
@@ -56,7 +49,7 @@ describe "A user" do
       expect(user.errors[:email].any?).to be_true
     end
   end
-=begin  
+
   it "requires a unique, case insensitive email address" do
     user1 = User.create!(user_attributes)
 
@@ -93,7 +86,7 @@ describe "A user" do
   end
 
   it "requires a password and matching password confirmation when creating" do
-    user = User.create!(user_attributes(password: "secret", password_confirmation: "secret"))
+    user = User.create!(user_attributes(password: "bestsecret", password_confirmation: "bestsecret"))
 
     expect(user.valid?).to be_true
   end
@@ -111,7 +104,7 @@ describe "A user" do
 
     expect(user.password_digest).to be_present
   end
-=end  
+
   describe "authenticate" do
     before do
       @user = User.create!(user_attributes)
