@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.17.1'
 gem 'pg_search', '0.7.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -24,8 +23,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'kaminari'
-gem 'ransack', '~> 1.2.3'
-gem 'polyamorous', '~> 1.0.0'
+#gem 'ransack', '~> 1.2.3'
+#gem 'polyamorous', '~> 1.0.0'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 gem 'pry', group: [:development, :test]
@@ -33,15 +32,11 @@ gem 'pry-rails', group: [:development, :test]
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'rspec', '~> 3.0.0'
-gem 'rspec-rails', '~> 3.0.1'
-gem 'rspec-core', '~> 3.0.0'
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+group :development, :test do
+  gem 'rspec', '~> 2.14.1'
+  gem 'rspec-mocks', '~> 2.14.6'
+  gem 'rspec-core', '~> 2.14.8'
+  gem 'rspec-rails', '~> 2.14.2'
+  gem 'pry-debugger', '~> 0.2.2'
+end
 
