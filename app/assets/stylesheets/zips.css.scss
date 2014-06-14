@@ -21,7 +21,13 @@ table.foot-buttons {
   margin-left:18%;
   margin-right: 18%;
 }
+table.pnation {
+  border: none;
+}
 
+table.pnation td{
+  font-weight: bold;
+}
 tr.NormRow { background-color: #5c5959; }
 //#67FB93; }
 
@@ -296,7 +302,7 @@ input#tip_category {
 
 .rt-head-top {
   background-color: #005EBD;
-  margin: 2% 18.75% 0.5% 18.25%;
+  margin: 2% 25% 0.5% 25%;
   height: 32px;
   border: 3px;
   border-style: inset;
