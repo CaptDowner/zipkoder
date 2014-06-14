@@ -29,14 +29,27 @@ gem 'kaminari'
 gem 'spring',        group: :development
 gem 'pry', group: [:development, :test]
 gem 'pry-rails', group: [:development, :test]
-
+gem 'pry-plus'
+gem 'pry-doc'
+gem 'pry-docmore'
+gem 'pry-remote'
+gem 'pry-git'
+gem 'listen', '~> 2.7.8'
+gem 'jazz_hands'
+gem 'launchy', '~> 2.4.2'
+gem 'awesome_print'
+gem 'ffi', '~> 1.9.3'
+#gem 'rb-inotify', '~> 0.9.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
+  gem 'guard-rspec', '~> 4.2.10'
   gem 'rspec', '~> 2.14.1'
   gem 'rspec-mocks', '~> 2.14.6'
   gem 'rspec-core', '~> 2.14.8'
   gem 'rspec-rails', '~> 2.14.2'
   gem 'pry-debugger', '~> 0.2.2'
+  gem 'shoulda-matchers', '~> 2.6.1'
+  gem 'capybara', '~> 2.3.0'
 end
 
