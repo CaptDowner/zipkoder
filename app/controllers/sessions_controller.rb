@@ -11,8 +11,10 @@ class SessionsController < ApplicationController
       session[:sort] = 'zip'
       session[:direction] = 'asc'
       flash[:notice] = "Welcome back, #{user.firstname} #{user.lastname}!"
-#      redirect_to(session[:intended_url] || user)
       redirect_to(zips_path)
+#      redirect_to(session[:intended_url] || user)
+#      binding.pry
+      #      redirect_to(session[:intended_url])
      # setup default session params
     else
 #      binding.pry
