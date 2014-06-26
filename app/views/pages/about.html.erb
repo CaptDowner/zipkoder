@@ -24,15 +24,12 @@
       <table class='foot-buttons'>
         <tr>
           <td><%= button_to "Zips",  zips_path, {:class => "buttonTo", :method => "get"} %></td>
-<!--          < % binding.pry % >
-          < % if current_user == nil % > -->
-            <td><%= button_to "Sign In", new_session_path, {class: "button", method: "get"} %>
-            <td><%= button_to "Register", signup_path, { class: "button", method: "get"} %>
-<!--
-          < % else % >
+          <% if !current_user %>
+          <td><%= button_to "Sign In", new_session_path, {class: "button", method: "get"} %></td>
+          <td><%= button_to "Register", signup_path, { class: "button", method: "get"} %></td>
+          <% else %>
             <td>< % = button_to "Sign Out", session_path, data: { method: :delete, confirm: "Sign out #{current_user.firstname} #{current_user.lastname}?"} % ></td>
-          < % end % >
--->
+          <% end %>
       </tr>
       </table> 
     </div> <!-- End div:policytable -->
