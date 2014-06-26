@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>README - Rails Application Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page README.rdoc">
+
+<h2 id="label-README"><a href="README_rdoc.html">README</a><span><a href="#label-README">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Example of a Rails 4/Ruby 2.1.1 app.</p>
+
+<p>This app will do smart lookups of zipcodes by partial zip, city, and/or
+state. The file zipdata.csv contains all of the data in CSV format, so you
+can easily  import it into your own database. It utilizes the pg_search
+function to search  fields contained in the search scope.</p>
+<ul><li>
+<p>Ruby version</p>
+
+<pre>developed using Ruby 2.1.1 and Rails 4.1.1</pre>
+</li><li>
+<p>System dependencies</p>
+
+<pre>There is a CSV file in the root directory called zipdata.csv 
+which contains all of the data. It should be imported into your 
+chosen database. This app was developed using PostgreSQL.</pre>
+</li><li>
+<p>Configuration</p>
+
+<pre class="ruby"><span class="ruby-constant">Change</span> <span class="ruby-identifier">setting</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">config</span><span class="ruby-operator">/</span><span class="ruby-identifier">database</span>.<span class="ruby-identifier">yml</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">match</span> <span class="ruby-identifier">your</span> <span class="ruby-identifier">database</span> <span class="ruby-identifier">setup</span> 
+<span class="ruby-constant">Settings</span> <span class="ruby-identifier">will</span> <span class="ruby-identifier">require</span> <span class="ruby-identifier">your</span> <span class="ruby-identifier">database</span> <span class="ruby-identifier">user</span><span class="ruby-operator">/</span><span class="ruby-identifier">password</span>, <span class="ruby-identifier">database</span> <span class="ruby-identifier">name</span>, <span class="ruby-keyword">and</span> 
+<span class="ruby-identifier">anything</span> <span class="ruby-identifier">special</span> <span class="ruby-identifier">that</span> <span class="ruby-identifier">your</span> <span class="ruby-identifier">db</span> <span class="ruby-identifier">requires</span>.
+</pre>
+</li><li>
+<p>Database creation</p>
+
+<pre>rake db:create, rake db:migrate, and then populate the database 
+by importing the zipdata.csv file.</pre>
+</li><li>
+<p>How to run the test suite</p>
+
+<pre>&#39;rspec&#39; will run all tests. 
+&#39;rspec [filename]_spec.rb&#39; will run any individual test.</pre>
+</li><li>
+<p>Services</p>
+
+<pre class="ruby"><span class="ruby-constant">Search</span> <span class="ruby-identifier">is</span> <span class="ruby-identifier">done</span> <span class="ruby-identifier">using</span> <span class="ruby-constant">PostgreSQL</span><span class="ruby-string">&#39;s full text search functionality.
+The scope is currently limited to zip, city, and 2 letter state name.
+You can change this if you wish to limit or expand it by adding/removing 
+column names in the app/models/zip.rb file (currently on line 4).
+
+pg_search_scope :search, :against =&gt; [:zip, :state_2, :city]
+</span></pre>
+</li><li>
+<p>Deployment instructions</p>
+
+<pre>Once &#39;bundle install&#39; is run from the base directory,
+and the database is setup and populated, simply run:
+
+rails s</pre>
+</li></ul>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
