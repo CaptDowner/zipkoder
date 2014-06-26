@@ -1,19 +1,22 @@
-<p id="notice"><%= notice %></p>
+<h1 class='rt-head-top'>Show User</h1>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @user.firstname %>
-</p>
+<p id="notice"><%= notice %></tr>
+<table>
+  <tr>
+    <td align='right'><strong>First:</strong></td>
+    <td><%= @user.firstname %></td>
+  </tr>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @user.lastname %>
-</p>
+  <tr>
+    <td align='right'><strong>Last:</strong></td>
+    <td><%= @user.lastname %></td>
+  </tr>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
+  <tr>
+    <td align='right'><strong>Email:</strong></td>
+    <td><%= @user.email %></td>
+  </tr>
+</table>
+<br>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
