@@ -58,7 +58,7 @@
       <td><%= button_to "Sign Out", session_path, data: { method: :delete, confirm: "Sign out #{current_user.firstname} #{current_user.lastname}?"} %></td>
     <% else %>
       <td><%= button_to "Sign In", new_session_path, method: :get %></td>
-      <td><%= button_to "Register", signup_path %></td>
+    <td><%= button_to "Register", signup_path %></td>
     <% end %>
   </tr>
 </table>
