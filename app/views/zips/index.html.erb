@@ -1,4 +1,4 @@
-<h1>Locations</h1>
+<h1 class='rt-head-top'>Locations</h1>
 <% $query = '' %>
 
  <%= form_tag zips_path, :method => 'get' do %>
@@ -55,7 +55,7 @@
   <tr>
     <% if(current_user || current_user_admin?) %>
       <td><%= button_to 'New Zip', new_zip_path %></td>
-      <td><%= button_to "Sign Out", session_path, data: { method: :delete, confirm: "Sign out #{current_user.firstname} #{current_user.lastname}?"} %></td>
+      <td><%= button_to "Sign Out", root_path, data: { method: :get, confirm: "Sign out #{current_user.firstname} #{current_user.lastname}?"} %></td>
     <% else %>
       <td><%= button_to "Sign In", new_session_path, method: :get %></td>
       <td><%= button_to "Register", signup_path %></td>
