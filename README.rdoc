@@ -8,28 +8,28 @@ import it into your own database. It utilizes the pg_search function to search
 fields contained in the search scope. 
 
 * Ruby version 
-  - developed using Ruby 2.1.1 and Rails 4.1.1
+    developed using Ruby 2.1.1 and Rails 4.1.1
 
 * System dependencies 
-  - There is a CSV file in the root directory called zipdata.csv 
+    There is a CSV file in the root directory called zipdata.csv 
     which contains all of the data. It should be imported into your 
     chosen database. This app was developed using PostgreSQL.
 
 * Configuration 
-  - Change setting in config/database.yml to match your database setup 
+    Change setting in config/database.yml to match your database setup 
     Settings will require your database user/password, database name, and 
     anything special that your db requires.
 
 * Database creation 
-  - rake db:create, rake db:migrate, and then populate the database 
+    rake db:create, rake db:migrate, and then populate the database 
     by importing the zipdata.csv file.
 
 * How to run the test suite 
-  - 'rspec' will run all tests. 
-'rspec [filename]_spec.rb' will run any individual test.
+    'rspec' will run all tests. 
+    'rspec [filename]_spec.rb' will run any individual test.
 
 * Services 
-  - Search is done using PostgreSQL's full text search functionality.
+    Search is done using PostgreSQL's full text search functionality.
     The scope is currently limited to zip, city, and 2 letter state name.
     You can change this if you wish to limit or expand it by adding/removing 
     column names in the app/models/zip.rb file (currently on line 4).
@@ -37,8 +37,8 @@ fields contained in the search scope.
     pg_search_scope :search, :against => [:zip, :state_2, :city]
 
 * Deployment instructions 
-  - Once 'bundle install' is run from the base directory,
+    Once 'bundle install' is run from the base directory,
     and the database is setup and populated, simply run:
- 
+
     rails s 
 
