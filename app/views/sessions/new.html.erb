@@ -22,14 +22,14 @@
     <table class='foot-buttons'>
       <tr>
       <!-- show these buttons if this user is not signed in -->
-      <% if(current_user==nil)  %> 
-        <td><%= submit_tag 'Sign In' %>
-        <td><%= button_to "Sign In", new_session_path %></td>
-        <td><%= button_to "Register", signup_path,  date: { class: "button", method: "get"} %>
+      <% if(!current_user)  %> 
+        <td><%= button_to 'Sign In', new_session_path, method: "get" %></td>
+        <!--        <td>< % = button_to "Sign In", new_session_path % ></td> -->
+        <td><%= button_to "Register", signup_path,  data: { class: "button", method: "get"} %>
       <% else %>
         <!-- show this button to signed in users -->
         <!-- If chosen, issue an alert message confirming session sign out -->
-        <td>< % = button_to 'Sign Out', session_path, data: {method: :delete, confirm: "Sign out #{current_user.firstname} #{current_user.lastname}?"} % ></td>
+        <td><%= button_to 'Sign Out', session_path, data: {method: :delete, confirm: "Sign out #{current_user.firstname} #{current_user.lastname}?"} %></td>
       <% end %>
       <!-- show these buttons to all users -->
         <td><%= button_to "Zips", zips_path, data: {:class => "button", :method => "get"} %></td>
