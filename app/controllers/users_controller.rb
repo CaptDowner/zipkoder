@@ -82,7 +82,7 @@ class UsersController < ApplicationController
     name = "#{@user.firstname} #{@user.lastname}"
     @user.destroy
     session[:user_id] = nil
-    redirect_to users_path, alert: "#{name} was successfully deleted!"
+    redirect_to new_session_path, alert: "#{name} was successfully deleted!"
 =begin
     @user.destroy
     respond_to do |format|
