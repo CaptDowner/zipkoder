@@ -275,9 +275,9 @@ DEPENDENCIES
   pry-remote
   rails (= 4.1.1)
   rspec (~> 2.14.1)
-  rspec-core (~> 2.14.8)
+  rspec-core (= 2.14.8)
   rspec-mocks (~> 2.14.6)
-  rspec-rails (~> 2.14.2)
+  rspec-rails (~> 2.14)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   shoulda-matchers (~> 2.6.1)
