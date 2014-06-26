@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
   validates :firstname, presence: true
   validates :lastname, presence: true
   validates :email, presence: true,
-            format: /\A\S+@\S+\z/
-  validates :email, presence: true,
             format: VALID_EMAIL_REGEX,
             uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 7, allow_blank: true }
